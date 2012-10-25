@@ -14,9 +14,17 @@ gem 'requirejs-rails'
 
 and install them with `bundle`.
 
-# 2. Configure sprockets
+# 2. Configure sprockets and Haml Coffee Assets
 
 Remove all sprockets directives from `application.js` and do not require any Haml Coffee template.
+
+Configure Haml Coffee Assets to serve AMD modules instead of JST templates:
+
+```Ruby
+if defined? ::HamlCoffeeAssets
+  config.hamlcoffee.placement = 'amd'
+end
+```
 
 # 3. Write your templates
 
