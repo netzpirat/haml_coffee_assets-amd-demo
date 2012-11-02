@@ -6,7 +6,7 @@ gem 'sqlite3'
 
 gem 'requirejs-rails'
 gem 'jquery-rails'
-gem 'haml_coffee_assets', path: '~/Repositories/haml_coffee_assets'
+gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets', branch: 'master'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
