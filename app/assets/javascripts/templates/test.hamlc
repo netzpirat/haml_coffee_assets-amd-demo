@@ -1,4 +1,4 @@
 %h1 Test template rendering
 %ul
   - for number in @numbers
-    %li= number
+    != require('templates/shared/partial')({ name: number })

@@ -3,7 +3,9 @@
 This is a simple example Rails application that shows how to set up
 [Haml Coffee Assets](https://github.com/netzpirat/haml_coffee_assets) with [RequireJS](http://requirejs.org/).
 
-## 1. Install gems
+## Setup
+
+### 1. Install gems
 
 Add the following gems to your `Gemfile`:
 
@@ -14,7 +16,7 @@ gem 'requirejs-rails'
 
 and install them with `bundle`.
 
-# 2. Configure sprockets and Haml Coffee Assets
+### 2. Configure sprockets and Haml Coffee Assets
 
 Remove all sprockets directives from `application.js` and do not require any Haml Coffee template.
 
@@ -26,7 +28,7 @@ if defined? ::HamlCoffeeAssets
 end
 ```
 
-# 3. Write your templates
+### 3. Write your templates
 
 For this showcase only one simple template `app/assets/javascripts/templates/test.hamlc` exists:
 
@@ -37,20 +39,27 @@ For this showcase only one simple template `app/assets/javascripts/templates/tes
     %li= number
 ```
 
-# 4. Load template and render
+### 4. Load template and render
 
 Load the template in your app and render it:
 
 ```JavaScript
-require(['jquery', 'hamlcoffee', 'templates/test'], function ($, hc, test) {
+require(['jquery', 'templates/test'], function ($, test) {
   $(function() {
       $('body').append(test({ numbers: ['1', '2', '3'] }));
   });
 });
 ```
 
-Please note, you need to load the `hamlcoffee` global helper before the templates due to the current design limitation
-of Haml Coffee Assets and Haml Coffee.
+## Partials
+
+Haml Coffee AMD support detects partials in your templates and adds them automatically to the module dependencies,
+allowing you to render another template like:
+
+```Haml
+%h1 Partials!!!
+%p!= require('partial')()
+```
 
 ## Author
 
