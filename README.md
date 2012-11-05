@@ -1,4 +1,4 @@
-# Haml Coffee Assets & Require JS
+# Haml Coffee Assets & Require JS Demo App
 
 This is a simple example Rails application that shows how to set up
 [Haml Coffee Assets](https://github.com/netzpirat/haml_coffee_assets) with [RequireJS](http://requirejs.org/).
